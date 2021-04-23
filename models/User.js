@@ -1,12 +1,16 @@
 const Sequelize = require('sequelize');
 const connection = require('../db/connection')
 
-const User = connection.define('user', {
+const User = connection.define('users', {
     name: {
         type: Sequelize.STRING,
         allowNull: false
     },
     email: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    password: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -16,13 +20,14 @@ const User = connection.define('user', {
     },
     money: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     status: {
         type: Sequelize.BOOLEAN,
-        allowNull: true
+        allowNull: false
     },
 })
+
 
 User.sync({force: false})
 
